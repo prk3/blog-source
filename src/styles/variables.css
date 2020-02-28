@@ -1,0 +1,13 @@
+:root {
+  --column-width-text: 700px;
+  --column-width-layout: 1200px;
+
+  --text-color: #353434;
+  --text-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
+  --text-size: 20px;
+
+  --background: #f0f0f0;
+
+  --text-color-alternative: #f0f0f0;
+  --background-alternative: #353434;
+}

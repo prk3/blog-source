@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "static site generator for prk3 blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": {
+    "name": "Przemysław Kukulski",
+    "email": "kukulski.przemyslaw@gmail.com",
+    "url": "https://prk3.github.io"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "gray-matter": "^4.0.2",
+    "next": "^9.2.2",
+    "raw-loader": "^4.0.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-markdown": "^4.3.1",
+    "react-syntax-highlighter": "^12.2.1"
+  }
+}

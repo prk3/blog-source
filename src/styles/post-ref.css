@@ -1,0 +1,63 @@
+.postRef {
+  display: flex;
+}
+
+.postRef--left {
+  justify-content: left;
+  text-align: left;
+}
+
+.postRef--right {
+  justify-content: right;
+  text-align: right;
+}
+
+.postRef__link {
+  flex-shrink: 1;
+  position: relative;
+}
+
+.postRef--left .postRef__link {
+  padding-left: 20px;
+}
+
+.postRef--right .postRef__link {
+  padding-right: 20px;
+}
+
+.postRef__link:hover .postRef__label,
+.postRef__link:focus .postRef__label {
+  text-decoration: underline;
+}
+
+.postRef__label {
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.postRef__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: var(--text-family);
+}
+
+.postRef__arrow {
+  font-size: 12px;
+  position: absolute;
+}
+
+.postRef--right .postRef__arrow {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+.postRef--left .postRef__arrow {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

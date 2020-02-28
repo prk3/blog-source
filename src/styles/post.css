@@ -1,0 +1,17 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.post__body {
+  flex-grow: 1;
+}
+
+.post__body__column {
+  width: 100%;
+  margin: 50px auto;
+  padding: 0 20px;
+  max-width: var(--column-width-text);
+}
+
