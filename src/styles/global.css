@@ -12,6 +12,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  color: var(--text-color);
+  font-family: var(--text-family);
 }
 
 a.clean {
@@ -61,11 +63,11 @@ a.noUnderline {
 .fancy p {
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-  color: var(--text-color);
+  color: var(--fancy-color);
   text-align: left;
   line-height: 155%;
-  font-size: var(--text-size);
-  font-family: var(--text-family);
+  font-size: var(--fancy-size);
+  font-family: var(--fancy-family);
 }
 
 .fancy p::first-letter {
@@ -80,19 +82,20 @@ a.noUnderline {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
   line-height: 155%;
-  font-size: var(--text-size);
-  font-family: var(--text-family);
+  font-size: var(--fancy-size);
+  font-family: var(--fancy-family);
 }
 
 .fancy h1 {
   margin-top: 2em;
   margin-bottom: 1em;
-  font-size: calc(var(--text-size) * 1.6);
-  font-family: var(--text-family);
+  color: var(--fancy-color-strong);
+  font-size: calc(var(--fancy-size) * 1.6);
+  font-family: var(--fancy-family);
 }
 
 .fancy code {
-  font-size: calc(var(--text-size) * 0.85);
+  font-size: calc(var(--fancy-size) * 0.85);
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   background-color: #F5F2F0;
   padding: 2px 4px;

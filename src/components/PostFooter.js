@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PostRef from './PostRef';
 
 export default function PostFooter({ prevPost, nextPost }) {
@@ -15,7 +16,9 @@ export default function PostFooter({ prevPost, nextPost }) {
             {nextPost && <PostRef align="left" label="Next post" post={nextPost} />}
           </div>
           <div className="postFooter__back">
-            <a className="clean noUnderline postFooter__back__link" href="javascript:history.back()">Go back</a>
+            <Link href="/">
+              <a className="clean noUnderline postFooter__back__link">Home</a>
+            </Link>
           </div>
           <div className="postFooter__prev">
             {prevPost && <PostRef align="right" label="Previous post" post={prevPost} />}

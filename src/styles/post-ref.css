@@ -41,7 +41,7 @@
   margin-bottom: 0;
   font-size: 18px;
   font-weight: normal;
-  font-family: var(--text-family);
+  font-family: var(--fancy-family);
 }
 
 .postRef__arrow {

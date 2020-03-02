@@ -14,7 +14,7 @@ export function getPosts() {
   const fileValues = fileNames.map(dir);
 
   const posts = fileNames.map((name, i) => {
-    const slug = name.match(/\/([\w]+)\.md$/)[1];
+    const slug = name.match(/\/([\w-]+)\.md$/)[1];
 
     const parsed = matter(fileValues[i].default);
     const meta = parsed.data;
@@ -27,4 +27,11 @@ export function getPosts() {
 
   _postsCache = posts;
   return posts;
+}
+
+export function formatDate(date) {
+  const month = date.toLocaleString('en', { month: 'long' });
+  const day = date.getUTCDate();
+  const year = date.getUTCFullYear();
+  return `${month} ${day}, ${year}`;
 }

@@ -5,6 +5,8 @@ import '../styles/post.css';
 import '../styles/index.css';
 
 import '../styles/code.css';
+import '../styles/post-header.css';
+import '../styles/post-header-img.css';
 import '../styles/post-footer.css';
 import '../styles/post-ref.css';
 
