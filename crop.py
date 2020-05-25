@@ -6,8 +6,8 @@ import numpy as np
 parser = argparse.ArgumentParser()
 parser.add_argument("input",  help="input image file")
 parser.add_argument("output", help="output file")
-parser.add_argument("width",  help="output image width",  type=int)
-parser.add_argument("height", help="output image height", type=int)
+parser.add_argument("width",  help="output image width or auto")
+parser.add_argument("height", help="output image height or auto")
 parser.add_argument("--harea", help="visible area: 0=left, 50=center, 100=right  (default=50)", type=int, default=50)
 parser.add_argument("--varea", help="visible area: 0=top,  50=center, 100=bottom (default=50)", type=int, default=50)
 parser.add_argument("--webp-quality", help="quality between 1 and 100 (default=50)", type=int, default=50)
@@ -16,21 +16,33 @@ parser.add_argument("--j2-quality",   help="quality between 0 and 100 (default=7
 
 args = parser.parse_args()
 
-
 input_path = args.input
 output_path = args.output
 
-out_width = args.width
-out_height = args.height
-
 h_slider = args.harea
 v_slider = args.varea
-
 
 in_img = cv2.imread(input_path, cv2.IMREAD_UNCHANGED)
 
 in_height = in_img.shape[0]
 in_width = in_img.shape[1]
+
+if args.width == "auto" and args.height == "auto":
+    out_width = in_width
+    out_height = in_height
+
+elif args.width == "auto":
+    out_height = int(args.height)
+    out_width = int((in_width / in_height) * out_height)
+
+elif args.height == "auto":
+    out_width = int(args.width)
+    out_height = int((in_height / in_width) * out_width)
+
+else:
+    out_width = int(args.width)
+    out_height = int(args.height)
+
 
 in_ratio = in_width / in_height
 out_ratio = out_width / out_height

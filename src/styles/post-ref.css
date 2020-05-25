@@ -1,42 +1,44 @@
-.postRef {
+.PostRef {
   display: flex;
 }
 
-.postRef--left {
+.PostRef--left {
   justify-content: left;
   text-align: left;
 }
 
-.postRef--right {
+.PostRef--right {
   justify-content: right;
   text-align: right;
 }
 
-.postRef__link {
+.PostRef__link {
+  color: inherit;
+  text-decoration: none;
   flex-shrink: 1;
   position: relative;
 }
 
-.postRef--left .postRef__link {
+.PostRef--left .PostRef__link {
   padding-left: 20px;
 }
 
-.postRef--right .postRef__link {
+.PostRef--right .PostRef__link {
   padding-right: 20px;
 }
 
-.postRef__link:hover .postRef__label,
-.postRef__link:focus .postRef__label {
+.PostRef__link:hover .PostRef__label,
+.PostRef__link:focus .PostRef__label {
   text-decoration: underline;
 }
 
-.postRef__label {
+.PostRef__label {
   margin-bottom: 5px;
   font-size: 12px;
   text-transform: uppercase;
 }
 
-.postRef__title {
+.PostRef__title {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 18px;
@@ -44,19 +46,18 @@
   font-family: var(--fancy-family);
 }
 
-.postRef__arrow {
+.PostRef__arrow {
   font-size: 12px;
   position: absolute;
 }
 
-.postRef--right .postRef__arrow {
+.PostRef--right .PostRef__arrow {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 
-
-.postRef--left .postRef__arrow {
+.PostRef--left .PostRef__arrow {
   left: 0;
   top: 50%;
   transform: translateY(-50%);

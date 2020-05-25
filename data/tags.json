@@ -1,0 +1,14 @@
+{
+  "typescript": {
+    "title": "TypeScript",
+    "color": "#294e80"
+  },
+  "markdown": {
+    "title": "Markdown",
+    "color": "#000000"
+  },
+  "nextjs": {
+    "title": "Next.js",
+    "color": "#000000"
+  }
+}

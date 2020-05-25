@@ -3,7 +3,7 @@
   --column-width-layout: 1200px;
 
   --fancy-color: #353434;
-  --fancy-color-strong: #0a0a0a;
+  --fancy-color-strong: #1a1a1a;
   --fancy-family: 'Source Serif Pro', 'Times New Roman', Times, serif;
   --fancy-size: 20px;
 
@@ -13,5 +13,5 @@
   --text-size: 16px;
 
   --background: #f0f0f0;
-  --background-alternative: #353434;
+  --background-alternative: #282626;
 }

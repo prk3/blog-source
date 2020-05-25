@@ -1,11 +1,74 @@
-.index__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.Index {
+  height: 100vh;
 }
 
-.index__postList {
-  max-width: 700px;
-  padding-left: 20px;
-  padding-right: 20px;
+.Index__container {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Index__about {
+  flex: 1 1 400px;
+  background-color: var(--background-alternative);
+  color: var(--text-color-alternative);
+}
+
+.Index__aboutColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 400px;
+  height: 100%;
+  text-align: center;
+}
+
+.Index__aboutPic {
+  min-width: 100px;
+  max-width: 400px;
+  width: 60%;
+  margin-bottom: 40px;
+}
+
+.Index__aboutAvatar {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.Index__aboutTitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-family: var(--fancy-family);
+  font-size: 30px;
+}
+
+.Index__aboutParagraph {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.Index__aboutRepoLink {
+  display: inline-block;
+}
+
+.Index__posts {
+  flex: 6 2 1000px;
+  padding: 0 40px;
+}
+
+.Index__postsColumn {
+  margin: 0 auto;
+  max-width: 100%;
+  width: calc(300px + 30%);
+}
+
+.Index__postsGuide {
+  margin: 0 auto;
+  max-width: 600px;
 }

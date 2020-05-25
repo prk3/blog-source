@@ -1,0 +1,13 @@
+.PostPreview__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.PostPreview__title {
+  /* override fancy margin */
+  margin-bottom: 20px !important;
+}
+
+.PostPreview__dateRow {
+  margin-bottom: 20px;
+}

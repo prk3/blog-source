@@ -2,8 +2,9 @@
 title: "Type narrowing and closures"
 short: "Typescript offers a mechanism called type narrowing, which allows us to validate object's type with type guards and avoid explicit casts or error silencing. This post will give a brief demo of this feature and show it's interesting consequences."
 tags: "typescript"
-published: 2020-02-28
-background: "#130e06"
+published: 2020-05-25
+background: "#181f2b"
+
 ---
 
 # Type narrowing
@@ -49,9 +50,9 @@ if (userCan(ben, 'car.drive')) {
 }
 ```
 
-Type narrowing is occurring inside the if condition. In the first branch the type `string | string[]` is narrowed to `string`. In else branch, Typescript assumes that the code will execute only if `permissions` is an array of strings.
+Type narrowing is occurring inside the if condition. In the first branch, the type `string | string[]` is narrowed to `string`. In else branch, Typescript assumes that the code will execute only if `permissions` is an array of strings.
 
-Does `typeof` have special powers? No. `typeof` operator is a **type guard**. Its boolean result determines if a broader type (in this case union of two types) can be narrowed down. A function that you probably know by now - `Array.isArray` - is a type guard. We can define our own type guards. Here is how they look like.
+Does `typeof` have special powers? No. `typeof` operator is a **type guard**. Its boolean result determines if a broader type (in this case union of two types) can be narrowed down. A function that you probably know by now - `Array.isArray` - is a type guard. We can define our own type guards too. Here is how they look like.
 
 ```typescript
 type CartesianPoint = {
@@ -88,7 +89,7 @@ If you want to read more about type guards, check out [Typescript's handbook](ht
 
 # Simple feature, huh?
 
-I recently run into a scenario that exposes a weird quick of type narrowing. Take a look.
+I recently run into a scenario that exposes a weird quirk of type narrowing. Take a look.
 
 ```typescript
 function access(index: number, data: any[] | Map<number, any>) {
@@ -121,6 +122,6 @@ function access(index: number, data: any[] | Map<number, any>) {
 }
 ```
 
-In this case, calling `y` will try to access data on the map object, not the data stored inside it. No matter what would be inside the map, `y` will always yield undefined. What a nasty bug! Notice that type narrowing can be broken by reassignment. `indirection` was an array when entering the if branch, but became a map after another assignment. And it could do that, because its type allows for it.
+The call to `y` yields `undefined` because one line above `indirection` reference was set to a map, which does not have numerical properties. If `indirection` was declared with `const`, reassignment would not be allowed and thus the array guarantee would be always valid.
 
-It's fascinating how Typescript tracks type changes. The difference in behavior between `let` and `cost` reminds me of Rust's borrow checker. `y` borrows `indirection`, which should not be changed until `y` finishes or else the array invariant is broken. Interestingly, an IIFE assigned to `z` on the previous example does not trigger that error. Maybe Typescript noticed that the borrow immediately disappears and type may stay unchanged?
+It's fascinating how Typescript tracks type changes. The difference in behavior between `let` and `cost` captured variables reminds me of Rust's borrow checker. `y` borrows `indirection`, which should not be changed until `y` is destroyed. Otherwise, the array invariant is broken. Interestingly, an IIFE assigned to `z` in the previous example does not trigger that error. Maybe Typescript noticed that the borrow immediately disappears and type may stay unchanged?

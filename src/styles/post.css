@@ -1,14 +1,14 @@
-.post {
+.Post {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.post__body {
+.Post__body {
   flex-grow: 1;
 }
 
-.post__body__column {
+.Post__bodyColumn {
   width: 100%;
   margin: 80px auto;
   padding: 0 20px;

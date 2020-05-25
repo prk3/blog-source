@@ -1,27 +1,38 @@
 import Link from 'next/link';
 import PostHeaderImg from './PostHeaderImg';
+import Tag from './Tag';
 import { formatDate } from '../utils';
 
-export default function PostHeader({ post, config }) {
-  const date = formatDate(new Date(post.meta.published));
-
+export default function PostHeader({ post, config, tags }) {
   return (
-    <header className="postHeader">
+    <header className="PostHeader">
       <PostHeaderImg slug={post.slug} background={post.meta.background} />
-      <div className="postHeader__navContainer">
-        <div className="postHeader__navColumn">
+      <div className="PostHeader__navContainer">
+        <div className="PostHeader__navColumn">
           <nav>
             <Link href="/">
-              <a className="clean noUnderline postHeader__logo">prk3</a>
+              <a className="PostHeader__logo">prk3</a>
             </Link>
           </nav>
         </div>
       </div>
-      <div className="postHeader__titleContainer">
-        <div className="postHeader__titleColumn">
-          <h1 className="postHeader__title">{post.meta.title}</h1>
-          <h2 className="postHeader__author">{config.author.name}</h2>
-          <h3 className="postHeader__date">{date}</h3>
+      <div className="PostHeader__titleContainer">
+        <div className="PostHeader__titleColumn">
+          <h1 className="PostHeader__title">{post.meta.title}</h1>
+          <h2 className="PostHeader__author">{config.author.name}</h2>
+          <h3 className="PostHeader__date">
+            <time dateTime={new Date(post.meta.published)}>
+              {formatDate(new Date(post.meta.published))}
+            </time>
+          </h3>
+          {post.meta.tags && (
+            <div className="PostHeader__tags">
+              {post.meta.tags.split(',').map(slug => {
+                const tag = { slug, ...tags[slug] };
+                return <Tag key={slug} tag={tag} />
+              })}
+            </div>
+          )}
         </div>
       </div>
     </header>

@@ -16,12 +16,12 @@ body {
   font-family: var(--text-family);
 }
 
-a.clean {
+.link--clean {
   color: inherit;
   background-color: inherit;
 }
 
-a.noUnderline {
+.link--noUnderline {
   text-decoration: inherit;
 }
 
@@ -70,8 +70,12 @@ a.noUnderline {
   font-family: var(--fancy-family);
 }
 
-.fancy p::first-letter {
+.fancy__textFirstParagraph::first-letter {
   font-size: 1.3em;
+}
+
+.fancy blockquote .fancy__textFirstParagraph::first-letter {
+  font-size: var(--fancy-size);
 }
 
 .fancy ul ol {
@@ -94,10 +98,47 @@ a.noUnderline {
   font-family: var(--fancy-family);
 }
 
-.fancy code {
-  font-size: calc(var(--fancy-size) * 0.85);
+.fancy h2 {
+  margin-top: 1em;
+  margin-bottom: 0.8em;
+  color: var(--fancy-color-strong);
+  font-size: calc(var(--fancy-size) * 1.4);
+  font-family: var(--fancy-family);
+}
+
+.fancy h1 code,
+.fancy h2 code,
+.fancy h3 code {
+  font-size: 0.85em;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-weight: normal;
   background-color: #F5F2F0;
-  padding: 2px 4px;
+  padding: 0.15em 0.3em;
   border-radius: 2px;
 }
+
+.fancy p code {
+  font-size: 0.85em;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-weight: normal;
+  background-color: #F5F2F0;
+  padding: 0.15em 0.3em;
+  border-radius: 2px;
+}
+
+.fancy figure {
+  font-size: var(--fancy-size);
+  font-family: var(--fancy-family);
+  margin: 1em 0;
+}
+
+.fancy figure img {
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.fancy figcaption {
+  font-size: 0.8em;
+}
+
