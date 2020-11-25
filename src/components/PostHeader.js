@@ -27,7 +27,7 @@ export default function PostHeader({ post, config, tags }) {
           </h3>
           {post.meta.tags && (
             <div className="PostHeader__tags">
-              {post.meta.tags.split(',').map(slug => {
+              {(!!post.meta.tags ? post.meta.tags.split(',') : []).map(slug => {
                 const tag = { slug, ...tags[slug] };
                 return <Tag key={slug} tag={tag} />
               })}

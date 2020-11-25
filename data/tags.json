@@ -10,5 +10,9 @@
   "nextjs": {
     "title": "Next.js",
     "color": "#000000"
+  },
+  "functional": {
+    "title": "Functional",
+    "color": "#703c83"
   }
 }

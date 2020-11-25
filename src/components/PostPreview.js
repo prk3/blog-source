@@ -22,7 +22,7 @@ export default function PostPreview({ post, tags }) {
       </div>
 
       <div>
-        {post.meta.tags.split(',').map(slug => {
+        {(!!post.meta.tags ? post.meta.tags.split(',') : []).map(slug => {
           const tag = { slug, ...tags[slug] };
           return <Tag key={slug} tag={tag} />;
         })}

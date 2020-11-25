@@ -1,16 +1,15 @@
 .Index {
-  height: 100vh;
+
 }
 
 .Index__container {
   display: flex;
-
-  width: 100%;
-  height: 100%;
 }
 
 .Index__about {
   flex: 1 1 400px;
+  height: 100vh;
+  padding: 0 30px;
   background-color: var(--background-alternative);
   color: var(--text-color-alternative);
 }
@@ -22,8 +21,8 @@
   align-items: center;
 
   margin: 0 auto;
-  padding: 0 30px;
-  max-width: 400px;
+  padding: 40px 0;
+  max-width: 360px;
   height: 100%;
   text-align: center;
 }
@@ -59,11 +58,13 @@
 
 .Index__posts {
   flex: 6 2 1000px;
+  height: 100vh;
   padding: 0 40px;
+  overflow: auto;
 }
 
 .Index__postsColumn {
-  margin: 0 auto;
+  margin: 40px auto;
   max-width: 100%;
   width: calc(300px + 30%);
 }
@@ -71,4 +72,48 @@
 .Index__postsGuide {
   margin: 0 auto;
   max-width: 600px;
+}
+
+/*
+About column becomes so narrow that text is hard to read or the viewport is
+not tall enough to display all text.
+*/
+@media (max-width: 660px), (max-height: 800px) {
+
+  .Index__container {
+    /* |     |     |            |about|
+     * |about|posts| turns into |-----|
+     * |     |     |            |posts|
+     */
+    flex-direction: column;
+  }
+
+  .Index__about {
+    flex: initial;
+    height: initial;
+    /* Make about lay out the same way as posts */
+    padding: 0 40px;
+  }
+
+  .Index__aboutColumn {
+    /* Index__about does not have a fixed height anymore */
+    min-height: 100vh;
+    /* Make about lay out the same way as posts */
+    max-width: 600px;
+  }
+
+  .Index__aboutPic {
+    max-width: 200px;
+  }
+
+  .Index__posts {
+    flex: initial;
+    height: initial;
+    /* Index__container becomes scrollable, so posts don't have to scroll */
+    overflow: initial;
+  }
+
+  .Index__postsColumn {
+    width: initial;
+  }
 }

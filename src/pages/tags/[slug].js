@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 };
 
 export default function TagPage({ slug, posts, tags, config }) {
-  const relatedPosts = posts.filter(post => post.meta.tags.split(',').includes(slug));
+  const relatedPosts = posts.filter(post => !!post.meta.tags && post.meta.tags.split(',').includes(slug));
   return (
     <div className="TagPage">
       <Head>
